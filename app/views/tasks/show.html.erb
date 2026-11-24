@@ -1,0 +1,23 @@
+
+
+<div class="container">
+  <h2 class="mb-3"><%= @task.title %></h2>
+
+  <p><%= @task.details %></p>
+
+  <div class="mb-3">
+    <% if @task.completed %>
+      <i class="fa-solid fa-square-check"></i>
+      Completed
+    <% else %>
+      <i class="fa-regular fa-square"></i>
+      Not completed
+    <% end %>
+  </div>
+
+  <%= link_to "Edit", edit_task_path(@task), class: "btn btn-primary" %>
+
+  <%= link_to "Delete", task_path(@task),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+      class: "btn btn-danger" %>
+</div>
